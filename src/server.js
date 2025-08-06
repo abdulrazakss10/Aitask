@@ -9,6 +9,8 @@ const chatRoutes = require('./routes/chat');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const https = require('https');
+
 
 // Middleware
 app.use(cors());
@@ -47,8 +49,12 @@ app.use('*', (req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//     console.log(`Health check: http://localhost:${PORT}/api/health`);
+// });
+httpsServer.listen(port, () => {
+    console.log(`Server is running on ${port}`);
     console.log(`Health check: http://localhost:${PORT}/api/health`);
 });
 
